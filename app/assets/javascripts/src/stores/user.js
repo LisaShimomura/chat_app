@@ -1,8 +1,8 @@
 const UserStore = {
   user: {
     id: 1,
-    name: 'John Doek',
-    profilePicture: 'https://avatars1.githubusercontent.com/u/8901351?v=3&s=200',
+    name: 'Lisa Shimomura',
+    profilePicture: 'https://pbs.twimg.com/profile_images/1044757077963358208/w3bYrFb5_400x400.jpg',
   },
 }
 

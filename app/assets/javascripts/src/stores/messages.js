@@ -17,9 +17,12 @@ const messages = {
     },
     messages: [
       {
-        contents: 'Hey!',
+        id: 1,
+        contents: 'Hello yeah!',
         from: 2,
         timestamp: 1424469793023,
+        created_at: '2018-09-20T04:09:11.458Z',
+        updated_at: '2018-09-20T04:09:11.458Z',
       },
       {
         contents: 'Hey, what\'s up?',
