@@ -11,12 +11,16 @@ class MessagesBox extends React.Component {
   constructor(props) {
     super(props)
     this.state = this.initialState
+      this.onChangeHandler = this.onStoreChange.bind(this)
   }
   get initialState() {
     return this.getStateFromStore()
   }
   getStateFromStore() {
     return MessagesStore.getChatByUserID(MessagesStore.getOpenChatUserID())
+  }
+  componentDidMount() {
+    MessagesStore.onChange(this.onChangeHandler)
   }
   componentWillMount() {
     MessagesStore.onChange(this.onStoreChange.bind(this))
