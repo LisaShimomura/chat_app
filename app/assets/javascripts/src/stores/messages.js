@@ -84,6 +84,13 @@ class ChatStore extends BaseStore {
   getAllChats() {
     return messages
   }
+  getMessages() {
+    if (!this.get('userMessages')) this.setMessages([])
+    return this.get('userMessages')
+  }
+  setMessages(array) {
+    this.set('userMessages', array)
+  }
 }
 const MessagesStore = new ChatStore()
 
