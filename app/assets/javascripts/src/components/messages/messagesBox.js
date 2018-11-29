@@ -4,6 +4,7 @@ import MessagesStore from '../../stores/messages'
 import ReplyBox from '../../components/messages/replyBox'
 import UserStore from '../../stores/user'
 import Utils from '../../utils'
+import MessagesAction from '../../actions/messages'
 
 class MessagesBox extends React.Component {
 
