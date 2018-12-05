@@ -63,10 +63,10 @@ export default {
       request
       .post(`${APIEndpoints.MESSAGES}`)
       .set('X-CSRF-Token', CSRFToken())
-       .send({　// これによりサーバ側に送りたいデータを送ることが出来る。
-        body,
-        to_user_id,
-      })
+       .send({ // これによりサーバ側に送りたいデータを送ることが出来る。
+         body,
+         to_user_id,
+       })
       .end((error, res) => {
         if (!error && res.status === 200) {
           const json = JSON.parse(res.text)

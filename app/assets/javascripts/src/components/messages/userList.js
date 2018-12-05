@@ -95,7 +95,7 @@ class UserList extends React.Component {
         'clear': true,
         'user-list__item--active': openChatId === user.id,
       })
-      //新しいコメント追加
+      // 新しいコメント追加
       return (
         <li
           key={user.id}

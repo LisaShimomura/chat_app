@@ -6,9 +6,9 @@ export default {
   loadUsers() {
     return new Promise((resolve, reject) => {
       request
-      .get(`${APIEndpoints.USERS}`)　// 取得したいjsonがあるURLを指定する
+      .get(`${APIEndpoints.USERS}`) // 取得したいjsonがあるURLを指定する
       .end((error, res) => {
-        if (!error && res.status === 200) {// 200はアクセスが成功した際のステータスコードです。
+        if (!error && res.status === 200) { // 200はアクセスが成功した際のステータスコードです。
           const json = JSON.parse(res.text)
           Dispatcher.handleServerAction({
             type: ActionTypes.LOAD_USERS,

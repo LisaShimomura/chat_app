@@ -29,7 +29,7 @@ class MessagesBox extends React.Component {
         </li>
       )
     })
-    
+
     return (
       <div className='message-box'>
         <ul className='message-box__list'>
