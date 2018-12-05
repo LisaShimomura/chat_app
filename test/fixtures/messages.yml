@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  message: MyText
+  content: MyText
+  user_id:
+  timestamp: 2018-12-04 15:16:41
 
 two:
-  message: MyText
+  content: MyText
+  user_id:
+  timestamp: 2018-12-04 15:16:41

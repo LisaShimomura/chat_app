@@ -10,13 +10,12 @@ html {
 }
 body {
   background: #fff;
-
   position: relative;
   color: #444;
   font: 300 13px/1.6 Roboto, 'Helvetica Neue', Helvetica, Arial;
   margin: 0 auto;
   min-height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 ul,
 ol {

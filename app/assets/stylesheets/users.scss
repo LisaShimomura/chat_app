@@ -1,0 +1,180 @@
+.sign_up_wrapper, .login_wrapper {
+  padding-top: 70px;
+}
+
+.form_wrapper {
+  float: left;
+  width: 320px;
+  margin-left: 9%;
+}
+
+.new_user_title, .login_title, .edit_user_title {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.edit_user_title {
+  padding-top: 80px;
+}
+
+.new_user_btn, .login_btn {
+  width: 100%;
+}
+
+.edit_wrapper {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.edit_user {
+  width: 67%;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  padding: 55px;
+  background: #fafafa;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit_form_group {
+  margin-bottom: 25px !important;
+}
+
+.update_btn {
+  width: 100%;
+}
+
+.user_destroy_btn {
+  margin-top: 45px;
+  margin-left: 65%;
+}
+
+.user_profile {
+  width: 30%;
+  border: 1px solid #fff;
+  background: #fafafa;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 65px;
+  border-radius: 4px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.user_profile_image_id {
+  border-radius: 50%;
+  margin-bottom: 20px;
+  width: 60%;
+}
+
+.user_profile_data {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user_profile_name, .user_profile_email {
+  font-size: 18px;
+}
+
+.user_profile_name {
+  padding-bottom: 10px;
+}
+
+.user_profile_edit_btn {
+  margin-top: 30px;
+}
+
+// パスワードリセット
+.password-reset-wrapper {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+}
+
+.password-reset-title {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 7px;
+  margin-bottom: 25px;
+}
+
+.password-reset-email {
+  margin-top: 25px;
+}
+
+.password-reset-btn {
+  margin-bottom: 15px !important;
+}
+
+.password-reset-notice {
+  background-color: #e2f9ee;
+  padding: 15px;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+// ユーザー検索ぺージ
+.search {
+  text-align: center;
+}
+
+.chatapp-logo {
+  margin-top: 115px;
+}
+
+.google {
+  font-size: 80px;
+  font-weight: 500;
+}
+
+.logo-c, .logo-t {
+  color: #4285f4;
+}
+
+.logo-h, .logo-p {
+  color: #ea4335;
+}
+
+.logo-a, .logo-p2 {
+  color: #fbbc05;
+}
+
+.logo-A {
+  color: #34a853;
+}
+
+.search_form {
+  width: 35%;
+  padding: 8px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.search_user_list {
+  padding-top: 1px;
+  font-size: 16px;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.search_user_list_result {
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 5px;
+}
+
+.search_user_list_result:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.search_user_list_result_image {
+  border-radius: 50%;
+  width: 40px;
+  margin-right: 10px;
+}

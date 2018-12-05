@@ -2,7 +2,7 @@
 
   &__list {
     position: absolute;
-    top: 60px;
+    top: 50px;
     left: 300px;
     right: 0;
     bottom: 67px;
@@ -18,6 +18,7 @@
       font-weight: 400;
       border-radius: 10px;
       padding: 10px 15px;
+      margin-bottom: 10px;
     }
 
     &--from-current {
@@ -25,7 +26,6 @@
         float: right;
         background: #218CB9;
         color: #fff;
-        margin-bottom: 10px;
       }
     }
 
@@ -46,5 +46,10 @@
     left: 300px;
     bottom: 0;
     right: 0;
+  }
+
+  .image-message {
+    width: 250px;
+    height: 250px;
   }
 }

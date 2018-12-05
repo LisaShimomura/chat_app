@@ -1,116 +1,72 @@
+// ストアを作成するためにBaseStore(src/base/store)を継承している。
 import Dispatcher from '../dispatcher'
 import BaseStore from '../base/store'
-import UserStore from '../stores/user'
+import UserStore from './users'
+import CurrentUserStore from './currentUser'
+import MessagesAction from '../actions/messages'
 import {ActionTypes} from '../constants/app'
 
-const messages = {
-  2: {
-    user: {
-      profilePicture: 'https://avatars0.githubusercontent.com/u/7922109?v=3&s=460',
-      id: 2,
-      name: 'Ryan Clark',
-      status: 'online',
-    },
-    lastAccess: {
-      recipient: 1424469794050,
-      currentUser: 1424469794080,
-    },
-    messages: [
-      {
-        id: 1,
-        contents: 'Hello yeah!',
-        from: 2,
-        timestamp: 1424469793023,
-        created_at: '2018-09-20T04:09:11.458Z',
-        updated_at: '2018-09-20T04:09:11.458Z',
-      },
-      {
-        contents: 'Hey, what\'s up?',
-        from: 1,
-        timestamp: 1424469794000,
-      },
-    ],
-  },
-  3: {
-    user: {
-      read: true,
-      profilePicture: 'https://avatars3.githubusercontent.com/u/2955483?v=3&s=460',
-      name: 'Jilles Soeters',
-      id: 3,
-      status: 'online',
-    },
-    lastAccess: {
-      recipient: 1424352522000,
-      currentUser: 1424352522080,
-    },
-    messages: [
-      {
-        contents: 'Want a game of ping pong?',
-        from: 3,
-        timestamp: 1424352522000,
-      },
-    ],
-  },
-  4: {
-    user: {
-      name: 'Todd Motto',
-      id: 4,
-      profilePicture: 'https://avatars1.githubusercontent.com/u/1655968?v=3&s=460',
-      status: 'online',
-    },
-    lastAccess: {
-      recipient: 1424423579000,
-      currentUser: 1424423574000,
-    },
-    messages: [
-      {
-        contents: 'Please follow me on twitter I\'ll pay you',
-        timestamp: 1424423579000,
-        from: 4,
-      },
-    ],
-  },
-}
+let openChatId = parseInt(Object.keys(UserStore.getUsers())[0], 10)
 
-var openChatID = parseInt(Object.keys(messages)[0], 10)
+class MessageStore extends BaseStore {
 
-class ChatStore extends BaseStore {
-  getOpenChatUserID() {
-    return openChatID
+  getOpenChatUserId() {
+    const users = UserStore.getUsers()
+    if (Number.isNaN(openChatId) && users.length !== 0) {
+      openChatId = users[0].id
+      MessagesAction.loadUserMessages(openChatId)
+    }
+    return openChatId
   }
-  getChatByUserID(id) {
-    return messages[id]
-  }
-  getAllChats() {
-    return messages
-  }
-  getMessages() {
-    if (!this.get('userMessages')) this.setMessages([])
+
+  getUserMessages() {
+    if (!this.get('userMessages')) this.setUserMessages({})
     return this.get('userMessages')
   }
-  setMessages(array) {
-    this.set('userMessages', array)
-  }
-}
-const MessagesStore = new ChatStore()
 
+  setUserMessages(obj) {
+    this.set('userMessages', obj)
+  }
+
+}
+
+const MessagesStore = new MessageStore()
+// dispatchTokenはディスパッチャからの全てのイベントを待機している
+// 定数管理をしている
 MessagesStore.dispatchToken = Dispatcher.register(payload => {
   const action = payload.action
 
   switch (action.type) {
-    case ActionTypes.UPDATE_OPEN_CHAT_ID:
-      MessagesStore.setMessages(action.json)
+    case ActionTypes.LOAD_USER_MESSAGES:
+      openChatId = payload.action.id
+      MessagesStore.setUserMessages(payload.action.json)
       MessagesStore.emitChange()
       break
 
-    case ActionTypes.SEND_MESSAGE:
-      const userID = action.userID
-      messages[userID].messages.push({
-        contents: action.message,
-        timestamp: action.timestamp,
-        from: UserStore.user.id,
-      })
-      messages[userID].lastAccess.currentUser = +new Date()
+    case ActionTypes.SAVE_MESSAGE:
+      {
+        const messages = CurrentUserStore.getCurrentUser().messages
+        const currentUserId = CurrentUserStore.getCurrentUser().id
+        messages.push({
+          id: Math.floor(Math.random() * 1000000),
+          body: payload.action.body,
+          to_user_id: payload.action.to_user_id,
+          user_id: currentUserId,
+        })
+      }
+      MessagesStore.emitChange()
+      break
+
+    case ActionTypes.SAVE_IMAGE_CHAT:
+      {
+        const messages = CurrentUserStore.getCurrentUser().messages
+        const currentUserId = CurrentUserStore.getCurrentUser().id
+        messages.push({
+          image: payload.action.image,
+          to_user_id: payload.action.to_user_id,
+          user_id: currentUserId,
+        })
+      }
       MessagesStore.emitChange()
       break
   }
@@ -118,4 +74,5 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
   return true
 })
 
+window.MessagesStore = MessagesStore
 export default MessagesStore

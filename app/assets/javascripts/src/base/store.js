@@ -1,5 +1,5 @@
 import {EventEmitter2 as EventEmitter} from 'eventemitter2'
-
+// EventEmitterを継承していることでイベントを発するだけでなくコールバック関数の登録や取り消しが可能なオブジェクトを素早く作成できる。
 const CHANGE_EVENT = 'change'
 
 class BaseStore extends EventEmitter {
@@ -48,4 +48,3 @@ class BaseStore extends EventEmitter {
 }
 
 export default BaseStore
-

@@ -1,46 +1,35 @@
+input[type=submit] {
+  font-family: FontAwesome
+}
+
 .user-list {
   position: absolute;
-  top: 60px;
+  top: 50px;
   left: 0;
   bottom: 0;
   width: 300px;
-  background: rgba( 0, 0, 0, 0.03 );
+  background: #fff;
   border-right: 1px solid rgba( 0, 0, 0, 0.1 );
+  overflow: scroll;
+
+  &-name {
+    color: #000;
+  }
 
   &__item {
     padding: 14px 10px 14px 15px;
     border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );
     cursor: pointer;
 
-    &--new {
-      background: #EEF1F6;
-      font-weight: 500;
-
-      .user-list__item__icon {
-        color: #1D9BCE;
-        margin-right: 3px;
-      }
-    }
-
     &--active {
-      background: #93C26D;
+      background: rgba(0, 0, 0, .05);
       color: #fff;
-      font-weight: 500;
       position: relative;
       border-top: 1px solid rgba( 0, 0, 0, 0.1 );
       margin-top: -1px;
 
-      &:before {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 40px 0 40px 20px;
-        border-color: transparent transparent transparent #93C26D;
-        position: absolute;
-        display: block;
-        right: -20px;
-        top: 0;
-        content: " ";
+      .remove-chat-btn {
+        background: rgba(0, 0, 0, .01);
       }
     }
 
@@ -82,5 +71,23 @@
       float: left;
       padding-left: 15px;
     }
+
+    &__delete {
+      padding: 2px 9px !important;
+      margin-top: 8px !important;
+    }
   }
+}
+
+.remove-chat-btn {
+  color: #d9534f;
+  float: right;
+  margin-top: -10px;
+  background: #fff;
+  border: 0;
+}
+
+.new-message-icon {
+  color: #218cb9;
+  margin-right: 5px;
 }
