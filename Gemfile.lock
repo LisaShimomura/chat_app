@@ -88,6 +88,8 @@ GEM
     ffi (1.9.25)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
+    gimei (0.3.0)
+      romaji
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -185,7 +187,9 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    ruby_parser (3.11.0)
+    romaji (0.2.4)
+      rake (>= 0.8.0)
+    ruby_parser (3.12.0)
       sexp_processor (~> 4.9)
     sass (3.7.2)
       sass-listen (~> 4.0.0)
@@ -249,6 +253,7 @@ DEPENDENCIES
   devise
   erb2haml
   font-awesome-rails
+  gimei
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails

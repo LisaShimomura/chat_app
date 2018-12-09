@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # 基本ルーティング
+  # ログイン後にはrootに飛ばされる
+  #基本的なルーティング
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     confirmations: 'users/confirmations',
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create]
   resources :friendships, only: [:create, :destroy]
 
-  # APIルーティング
+  # APIのルーティング
   namespace :api, defaults: { format: :json } do
     resources :messages, only: [:index, :create] do
       collection do

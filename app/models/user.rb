@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :to_user_friendships, class_name: 'Friendship', foreign_key: 'to_user_id',
            dependent: :destroy
   has_many :friends_to_user, through: :to_user_friendships, source: 'from_user'
-
+# Userモデルを編集
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true, uniqueness: true

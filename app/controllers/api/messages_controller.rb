@@ -6,6 +6,9 @@ class Api::MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.create(message_params)
+    puts("==========================================================")
+    puts message_params
+    puts("==========================================================")
     render json: {message: @message}
   end
 

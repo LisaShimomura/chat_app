@@ -22,6 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # PUT /resource
+
   def update
     current_user.set_image(params[:user][:image])
     current_user.save

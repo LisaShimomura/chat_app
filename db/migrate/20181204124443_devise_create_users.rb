@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Rememberable
       t.datetime :remember_created_at
 
-      ## Trackable
+      ## Trackable,ログイン回数などを記録する機能
       t.integer  :sign_in_count, default: 0, null: false
       t.datetime :current_sign_in_at
       t.datetime :last_sign_in_at
