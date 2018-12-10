@@ -12,7 +12,7 @@ class Api::MessagesController < ApplicationController
       render json: {message: @message}
   end
 
-  def save_image
+  def upload_image
       @image_message = current_user.messages.build(params[:id])
       @image_message.to_user_id = params[:to_user_id]
       @image_message.set_image(params[:image])
