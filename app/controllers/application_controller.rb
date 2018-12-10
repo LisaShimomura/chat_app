@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
   private
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-      devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:name, :image, :email, :current_password,
-                                                                       :password, :password_confirmation)}
+        added_attrs = [ :name, :email, :password, :password_confirmation]
+        devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+        devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+        devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
     end
-end
+
+    def after_sign_out_path_for(resource)
+        new_user_session_path
+    end
+ end
 
 #deviseをユーザー名で登録・ログインできるように修正する
